@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SceneVC
 //  ARKitApp
 //
 //  Created by Sebastian Strus on 2018-06-07.
@@ -10,35 +10,41 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+class SceneVC: UIViewController, ARSCNViewDelegate {
 
+    //recive info from Segue
+    var textOnScene: String?
+    var pVector: SCNVector3?
+    var sVector: SCNVector3?
+    var textColor: UIColor?
+    
+    
     @IBOutlet var sceneView: ARSCNView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let stringToShow = "Open Solution"
         
         
         // Set the view's delegate
         sceneView.delegate = self
         
         //create a Text Geometry, Assignsthe text that I want to display and gives some thickness to my 3D text
-        let text = SCNText(string: stringToShow, extrusionDepth: 1)
+        let text = SCNText(string: textOnScene, extrusionDepth: 1)
         
         //create a material object
         let material = SCNMaterial()
         //set the material to blue colot
-        material.diffuse.contents = UIColor.white
+        material.diffuse.contents = textColor
         //assigns the material to my text
         text.materials = [material]
         
         //create a node object
         let node = SCNNode()
         //sets the position of this node
-        node.position = SCNVector3(x: -2, y: -1, z: -1.0)//(x: 0, y: 0.02, z: -0.1)
+        node.position = pVector!
         //sets the size of the text
-        node.scale = SCNVector3(x: 0.1, y: 0.1, z: 0.1)
+        node.scale = sVector!
         //sets the text geometry to the node object
         node.geometry = text
         
