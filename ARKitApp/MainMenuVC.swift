@@ -33,6 +33,11 @@ class MainMenuVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(MainMenuVC.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
+    //prevents landscape in this controller
+    override open var shouldAutorotate: Bool {
+        return false
+    }
+    
     
     @IBAction func generatePressed(_ sender: BorderButton) {
         textToGenerate = textToGenerateTF.text
