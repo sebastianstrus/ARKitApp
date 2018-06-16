@@ -43,8 +43,6 @@ class MainMenuVC: UIViewController {
         textToGenerate = textToGenerateTF.text
         positionVector = SCNVector3(Double((xPositionTF.text)!)!, Double((yPositionTF.text)!)!, Double((zPositionTF.text)!)!)
         scaleVector = SCNVector3(Double((xScaleTF.text)!)! / 10, Double((yScaleTF.text)!)! / 10, Double((zScaleTF.text)!)! / 10)
-        
-        
         performSegue(withIdentifier: "GoToScene", sender: self)
         
     }
@@ -83,10 +81,10 @@ class MainMenuVC: UIViewController {
     @IBAction func changeColorAction(_ sender: UIButton) {
         textToGenerateTF.textColor = sender.backgroundColor
         textColor = sender.backgroundColor!
+        
+        //animate pressed button
+        sender.bounce()
     }
-    
-    
-    
-    
-    
+
 }
+
