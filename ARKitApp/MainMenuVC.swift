@@ -42,7 +42,7 @@ class MainMenuVC: UIViewController {
     @IBAction func generatePressed(_ sender: BorderButton) {
         textToGenerate = textToGenerateTF.text
         positionVector = SCNVector3(Double((xPositionTF.text)!)!, Double((yPositionTF.text)!)!, Double((zPositionTF.text)!)!)
-        scaleVector = SCNVector3(Double((xScaleTF.text)!)! / 10, Double((yScaleTF.text)!)! / 10, Double((zScaleTF.text)!)! / 10)
+        scaleVector = SCNVector3(Double((xScaleTF.text)!)! / 100, Double((yScaleTF.text)!)! / 100, Double((zScaleTF.text)!)! / 100)
         performSegue(withIdentifier: "GoToScene", sender: self)
         
     }
